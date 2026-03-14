@@ -393,6 +393,14 @@ nix_0_31_2 = { git = "https://github.com/dalvescb/nix", package = "nix", version
 portable-pty = { git = "https://github.com/dalvescb/wezterm", branch = "nix-pty" }
 # starlark needs to upgrade rustyline to in turn upgrade nix to workable version (i.e, from 0.28 to 0.29)
 starlark = { git = "https://github.com/dalvescb/starlark-rust", branch = "update-rustyline" } 
+allocative = { git = "https://github.com/dalvescb/starlark-rust", branch = "update-rustyline" }
+allocative_derive = { git = "https://github.com/dalvescb/starlark-rust", branch = "update-rustyline" }
+# tree-sitter needs to be patched for to remove ctor and add endian.h (currently fails alot of tests)
+tree-sitter = { git = "https://github.com/dalvescb/tree-sitter", branch = "aix-patch" } 
+tree-sitter-language = { git = "https://github.com/dalvescb/tree-sitter", branch = "aix-patch" }
+# tree-sitter-bash needs to be patched to use the above tree-sitter (tree-sitter-language in particular) patch
+tree-sitter-bash = { git = "https://github.com/dalvescb/tree-sitter-bash", branch = "aix-patch" }
+rama-net = { git = "https://github.com/dalvescb/rama", branch = "aix-patch" }
 
 # Uncomment to debug local changes.
 # rmcp = { path = "../../rust-sdk/crates/rmcp" }
