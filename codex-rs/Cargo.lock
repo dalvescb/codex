@@ -3068,8 +3068,7 @@ dependencies = [
 [[package]]
 name = "ctor"
 version = "0.6.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "424e0138278faeb2b401f174ad17e715c829512d74f3d1e81eb43365c2e0590e"
+source = "git+https://github.com/madanial0/rust-ctor#38dbef5bc2e503161b20ed311cb742852145e3fb"
 dependencies = [
  "ctor-proc-macro",
  "dtor",
