@@ -170,7 +170,7 @@ clap = "4"
 clap_complete = "4"
 color-eyre = "0.6.3"
 crossbeam-channel = "0.5.15"
-crossterm = "0.28.1"
+crossterm = { version =  "0.28.1", default-features = false, features = ["use-dev-tty","events","bracketed-paste"] }
 csv = "1.3.1"
 ctor = "0.6.3"
 derive_more = "2"
@@ -382,13 +382,13 @@ tokio-tungstenite = { git = "https://github.com/openai-oss-forks/tokio-tungsteni
 tungstenite = { git = "https://github.com/openai-oss-forks/tungstenite-rs", rev = "9200079d3b54a1ff51072e24d81fd354f085156f" }
 # this repo was already using a patch of colorterm, but it was old and using an incompatable version of rustix. This is a fork of the original
 # patch that updates rust to a compatable version for AIX
-crossterm = { git = "https://github.com/dalvescb/crossterm", branch = "dalvescb/color-query" }
+crossterm = { git = "https://github.com/dalvescb/crossterm", branch = "aix-patch" }
 # amy's backtrace fix with small correction
 backtrace = { git = "https://github.com/dalvescb/backtrace-rs", branch = "patch-fix" }
 #  nix version 30.1 (as high as starlark - rustyline will go) also needed with pty feature turned on, so give it same patch cherry pciked onto 30.1
 nix_0_30_1 = { git = "https://github.com/dalvescb/nix", package = "nix", version = "0.30.1", branch = "aix-pty-0.30.1" }
 # contains patch for portable-pty to use nix::openpty with aix
-nix_0_31_2 = { git = "https://github.com/dalvescb/nix", package = "nix", version = "0.31.2", branch = "aix-pty-0.31.2" }
+nix_0_31_2 = { git = "https://github.com/dalvescb/nix", package = "nix", version = "0.31.2", branch = "aix-pty-0.31.2-fix" }
 # portable-pty needs a patch to use nix::openpty instead of libc::openpty
 portable-pty = { git = "https://github.com/dalvescb/wezterm", branch = "nix-pty" }
 # starlark needs to upgrade rustyline to in turn upgrade nix to workable version (i.e, from 0.28 to 0.29)
