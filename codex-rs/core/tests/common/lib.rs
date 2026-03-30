@@ -40,7 +40,7 @@ fn configure_arg0_dispatch_for_test_binaries() {
     let _ = TEST_ARG0_PATH_ENTRY.get_or_init(codex_arg0::arg0_dispatch);
 }
 
-#[ctor]
+// #[ctor]
 fn configure_insta_workspace_root_for_snapshot_tests() {
     if std::env::var_os("INSTA_WORKSPACE_ROOT").is_some() {
         return;
