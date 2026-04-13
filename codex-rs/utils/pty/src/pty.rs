@@ -28,6 +28,9 @@ use tokio::sync::mpsc;
 use tokio::sync::oneshot;
 use tokio::task::JoinHandle;
 
+#[cfg(target_os = "aix")]
+use nix::pty;
+
 use crate::process::ChildTerminator;
 use crate::process::ProcessHandle;
 use crate::process::PtyHandles;
@@ -312,6 +315,7 @@ async fn spawn_process_preserving_fds(
                 // controlling terminal for the child's new session. stdout and
                 // stderr point at clones of the same slave device.
                 #[allow(clippy::cast_lossless)]
+                #[cfg(not(target_os = "aix"))]
                 if libc::ioctl(0, libc::TIOCSCTTY as _, 0) == -1 {
                     return Err(std::io::Error::last_os_error());
                 }
@@ -405,7 +409,7 @@ async fn spawn_process_preserving_fds(
     })
 }
 
-#[cfg(unix)]
+#[cfg(all(unix,not(target_os = "aix")))]
 fn open_unix_pty(size: TerminalSize) -> Result<(File, File)> {
     let mut master: RawFd = -1;
     let mut slave: RawFd = -1;
@@ -434,6 +438,34 @@ fn open_unix_pty(size: TerminalSize) -> Result<(File, File)> {
     set_cloexec(slave)?;
 
     Ok(unsafe { (File::from_raw_fd(master), File::from_raw_fd(slave)) })
+}
+
+#[cfg(target_os = "aix")]
+fn open_unix_pty(size: TerminalSize) -> Result<(File, File)> {
+    let size = libc::winsize {
+        ws_row: size.rows,
+        ws_col: size.cols,
+        ws_xpixel: 0,
+        ws_ypixel: 0,
+    };
+
+    let result = pty::openpty(Some(&size),None);
+    match result {
+        Err(err) => anyhow::bail!("failed to openpty: {:?}", err),
+        Ok(pty::OpenptyResult { master: owned_master, slave: owned_slave }) => {
+            let slave = owned_slave.as_raw_fd();
+            let master = owned_master.as_raw_fd();
+
+            // Ensure that these descriptors will get closed when we execute
+            // the child process.  This is done after constructing the Pty
+            // instances so that we ensure that the Ptys get drop()'d if
+            // the cloexec() functions fail (unlikely!).
+            set_cloexec(master)?;
+            set_cloexec(slave)?;
+
+            return Ok(unsafe { (File::from_raw_fd(master), File::from_raw_fd(slave)) })
+        }
+    }
 }
 
 #[cfg(unix)]
