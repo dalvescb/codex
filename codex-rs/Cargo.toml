@@ -96,6 +96,7 @@ license = "Apache-2.0"
 
 [workspace.dependencies]
 # Internal
+rustversion = "1.0.22"
 app_test_support = { path = "app-server/tests/common" }
 codex-ansi-escape = { path = "ansi-escape" }
 codex-analytics = { path = "analytics" }
@@ -456,7 +457,7 @@ rama-error = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
 rama-macros = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
 rama-udp = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
 rama-unix = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
-ctor = { git = "https://github.com/madanial0/rust-ctor" }
+ctor = { git = "https://github.com/madanial0/rust-ctor", branch = "aix_ctor" }
 
 # Uncomment to debug local changes.
 # rmcp = { path = "../../rust-sdk/crates/rmcp" }

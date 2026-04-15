@@ -264,11 +264,11 @@ dependencies = [
 [[package]]
 name = "allocative"
 version = "0.3.3"
-source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#34c5340e94e6027d3de1e67916b2c7161dc925f9"
+source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#9b2b74a95051aded49f58c8f59c1e27c95a00300"
 dependencies = [
  "allocative_derive",
  "bumpalo",
- "ctor 0.1.26",
+ "ctor",
  "hashbrown 0.14.5",
  "num-bigint",
 ]
@@ -276,7 +276,7 @@ dependencies = [
 [[package]]
 name = "allocative_derive"
 version = "0.3.3"
-source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#34c5340e94e6027d3de1e67916b2c7161dc925f9"
+source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#9b2b74a95051aded49f58c8f59c1e27c95a00300"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -378,7 +378,7 @@ version = "1.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "40c48f72fd53cd289104fc64099abca73db4166ad86ea0b4341abe65af83dadc"
 dependencies = [
- "windows-sys 0.60.2",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -389,7 +389,7 @@ checksum = "291e6a250ff86cd4a820112fb8898808a366d8f9f58ce16d1f538353ad55747d"
 dependencies = [
  "anstyle",
  "once_cell_polyfill",
- "windows-sys 0.60.2",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -1287,7 +1287,7 @@ dependencies = [
 [[package]]
 name = "cmp_any"
 version = "0.8.1"
-source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#34c5340e94e6027d3de1e67916b2c7161dc925f9"
+source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#9b2b74a95051aded49f58c8f59c1e27c95a00300"
 
 [[package]]
 name = "codex-analytics"
@@ -1820,7 +1820,7 @@ dependencies = [
  "core-foundation 0.9.4",
  "core_test_support",
  "csv",
- "ctor 0.6.3",
+ "ctor",
  "dirs",
  "dunce",
  "encoding_rs",
@@ -2383,7 +2383,7 @@ dependencies = [
  "anyhow",
  "clap",
  "codex-process-hardening",
- "ctor 0.6.3",
+ "ctor",
  "libc",
  "reqwest",
  "serde",
@@ -3208,7 +3208,7 @@ dependencies = [
  "codex-protocol",
  "codex-utils-absolute-path",
  "codex-utils-cargo-bin",
- "ctor 0.6.3",
+ "ctor",
  "futures",
  "notify",
  "opentelemetry",
@@ -3419,18 +3419,8 @@ dependencies = [
 
 [[package]]
 name = "ctor"
-version = "0.1.26"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6d2301688392eb071b0bf1a37be05c469d3cc4dbbd95df672fe28ab021e6a096"
-dependencies = [
- "quote",
- "syn 1.0.109",
-]
-
-[[package]]
-name = "ctor"
 version = "0.6.3"
-source = "git+https://github.com/madanial0/rust-ctor#38dbef5bc2e503161b20ed311cb742852145e3fb"
+source = "git+https://github.com/madanial0/rust-ctor?branch=aix_ctor#38dbef5bc2e503161b20ed311cb742852145e3fb"
 dependencies = [
  "ctor-proc-macro",
  "dtor",
@@ -3859,7 +3849,7 @@ dependencies = [
  "libc",
  "option-ext",
  "redox_users 0.5.2",
- "windows-sys 0.60.2",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -3886,7 +3876,7 @@ dependencies = [
 [[package]]
 name = "display_container"
 version = "0.9.0"
-source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#34c5340e94e6027d3de1e67916b2c7161dc925f9"
+source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#9b2b74a95051aded49f58c8f59c1e27c95a00300"
 dependencies = [
  "either",
  "indenter",
@@ -3939,7 +3929,7 @@ checksum = "92773504d58c093f6de2459af4af33faa518c13451eb8f2b5698ed3d36e7c813"
 [[package]]
 name = "dupe"
 version = "0.9.0"
-source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#34c5340e94e6027d3de1e67916b2c7161dc925f9"
+source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#9b2b74a95051aded49f58c8f59c1e27c95a00300"
 dependencies = [
  "dupe_derive",
 ]
@@ -3947,7 +3937,7 @@ dependencies = [
 [[package]]
 name = "dupe_derive"
 version = "0.9.0"
-source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#34c5340e94e6027d3de1e67916b2c7161dc925f9"
+source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#9b2b74a95051aded49f58c8f59c1e27c95a00300"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -4101,7 +4091,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "39cab71617ae0d63f51a36d69f866391735b51691dbda63cf6f96d042b63efeb"
 dependencies = [
  "libc",
- "windows-sys 0.52.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -5544,7 +5534,7 @@ checksum = "3640c1c38b8e4e43584d8df18be5fc6b0aa314ce6ebf51b53313d4306cca8e46"
 dependencies = [
  "hermit-abi",
  "libc",
- "windows-sys 0.52.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -6320,7 +6310,7 @@ version = "0.50.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7957b9740744892f114936ab4a57b3f487491bbeafaf8083688b16841a4240e5"
 dependencies = [
- "windows-sys 0.60.2",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -8335,7 +8325,7 @@ dependencies = [
  "errno",
  "libc",
  "linux-raw-sys 0.4.15",
- "windows-sys 0.52.0",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]
@@ -8348,7 +8338,7 @@ dependencies = [
  "errno",
  "libc",
  "linux-raw-sys 0.11.0",
- "windows-sys 0.59.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -9439,7 +9429,7 @@ checksum = "6ce2be8dc25455e1f91df71bfa12ad37d7af1092ae736f3a6cd0e37bc7810596"
 [[package]]
 name = "starlark"
 version = "0.13.0"
-source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#34c5340e94e6027d3de1e67916b2c7161dc925f9"
+source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#9b2b74a95051aded49f58c8f59c1e27c95a00300"
 dependencies = [
  "allocative",
  "anyhow",
@@ -9478,7 +9468,7 @@ dependencies = [
 [[package]]
 name = "starlark_derive"
 version = "0.13.0"
-source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#34c5340e94e6027d3de1e67916b2c7161dc925f9"
+source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#9b2b74a95051aded49f58c8f59c1e27c95a00300"
 dependencies = [
  "dupe",
  "proc-macro2",
@@ -9489,7 +9479,7 @@ dependencies = [
 [[package]]
 name = "starlark_map"
 version = "0.13.0"
-source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#34c5340e94e6027d3de1e67916b2c7161dc925f9"
+source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#9b2b74a95051aded49f58c8f59c1e27c95a00300"
 dependencies = [
  "allocative",
  "dupe",
@@ -9502,7 +9492,7 @@ dependencies = [
 [[package]]
 name = "starlark_syntax"
 version = "0.13.0"
-source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#34c5340e94e6027d3de1e67916b2c7161dc925f9"
+source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#9b2b74a95051aded49f58c8f59c1e27c95a00300"
 dependencies = [
  "allocative",
  "annotate-snippets",
@@ -9787,7 +9777,7 @@ dependencies = [
  "getrandom 0.3.4",
  "once_cell",
  "rustix 1.1.3",
- "windows-sys 0.59.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
