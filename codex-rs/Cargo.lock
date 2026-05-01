@@ -268,7 +268,7 @@ source = "git+https://github.com/dalvescb/starlark-rust?branch=update-rustyline#
 dependencies = [
  "allocative_derive",
  "bumpalo",
- "ctor",
+ "ctor 0.6.3",
  "hashbrown 0.14.5",
  "num-bigint",
 ]
@@ -1820,7 +1820,7 @@ dependencies = [
  "core-foundation 0.9.4",
  "core_test_support",
  "csv",
- "ctor",
+ "ctor 0.10.1",
  "dirs",
  "dunce",
  "encoding_rs",
@@ -2383,7 +2383,7 @@ dependencies = [
  "anyhow",
  "clap",
  "codex-process-hardening",
- "ctor",
+ "ctor 0.10.1",
  "libc",
  "reqwest",
  "serde",
@@ -3208,7 +3208,7 @@ dependencies = [
  "codex-protocol",
  "codex-utils-absolute-path",
  "codex-utils-cargo-bin",
- "ctor",
+ "ctor 0.10.1",
  "futures",
  "notify",
  "opentelemetry",
@@ -3420,10 +3420,21 @@ dependencies = [
 [[package]]
 name = "ctor"
 version = "0.6.3"
-source = "git+https://github.com/madanial0/rust-ctor?branch=aix_ctor#38dbef5bc2e503161b20ed311cb742852145e3fb"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "424e0138278faeb2b401f174ad17e715c829512d74f3d1e81eb43365c2e0590e"
 dependencies = [
- "ctor-proc-macro",
- "dtor",
+ "ctor-proc-macro 0.0.7",
+ "dtor 0.1.1",
+]
+
+[[package]]
+name = "ctor"
+version = "0.10.1"
+source = "git+https://github.com/madanial0/rust-ctor?branch=upstreaming#efb89c16d5aeb1ca6138d063c8be04e046801fcb"
+dependencies = [
+ "ctor-proc-macro 0.0.13",
+ "dtor 0.8.1",
+ "link-section",
 ]
 
 [[package]]
@@ -3431,6 +3442,11 @@ name = "ctor-proc-macro"
 version = "0.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "52560adf09603e58c9a7ee1fe1dcb95a16927b17c127f0ac02d6e768a0e25bc1"
+
+[[package]]
+name = "ctor-proc-macro"
+version = "0.0.13"
+source = "git+https://github.com/madanial0/rust-ctor?branch=upstreaming#efb89c16d5aeb1ca6138d063c8be04e046801fcb"
 
 [[package]]
 name = "curve25519-dalek"
@@ -3911,7 +3927,15 @@ version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "404d02eeb088a82cfd873006cb713fe411306c7d182c344905e101fb1167d301"
 dependencies = [
- "dtor-proc-macro",
+ "dtor-proc-macro 0.0.6",
+]
+
+[[package]]
+name = "dtor"
+version = "0.8.1"
+source = "git+https://github.com/madanial0/rust-ctor?branch=upstreaming#efb89c16d5aeb1ca6138d063c8be04e046801fcb"
+dependencies = [
+ "dtor-proc-macro 0.0.13",
 ]
 
 [[package]]
@@ -3919,6 +3943,11 @@ name = "dtor-proc-macro"
 version = "0.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f678cf4a922c215c63e0de95eb1ff08a958a81d47e485cf9da1e27bf6305cfa5"
+
+[[package]]
+name = "dtor-proc-macro"
+version = "0.0.13"
+source = "git+https://github.com/madanial0/rust-ctor?branch=upstreaming#efb89c16d5aeb1ca6138d063c8be04e046801fcb"
 
 [[package]]
 name = "dunce"
@@ -5827,6 +5856,11 @@ dependencies = [
  "pkg-config",
  "vcpkg",
 ]
+
+[[package]]
+name = "link-section"
+version = "0.2.1"
+source = "git+https://github.com/madanial0/rust-ctor?branch=upstreaming#efb89c16d5aeb1ca6138d063c8be04e046801fcb"
 
 [[package]]
 name = "linked-hash-map"
@@ -11133,7 +11167,7 @@ version = "0.1.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c2a7b1c03c876122aa43f3020e6c3c3ee5c05081c9a00739faf7503aeba10d22"
 dependencies = [
- "windows-sys 0.48.0",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
