@@ -475,11 +475,11 @@ debug = 0
 strip = true
 
 [profile.release]
-lto = "fat"
+# lto = "fat"
 split-debuginfo = "off"
 # Because we bundle some of these executables with the TypeScript CLI, we
 # remove everything to make the binary as small as possible.
-strip = "symbols"
+strip = "debuginfo"
 
 # See https://github.com/openai/codex/issues/1411 for details.
 codegen-units = 1
