@@ -492,10 +492,47 @@ opt-level = 0
 [patch.crates-io]
 # Uncomment to debug local changes.
 # ratatui = { path = "../../ratatui" }
-crossterm = { git = "https://github.com/nornagon/crossterm", rev = "87db8bfa6dc99427fd3b071681b07fc31c6ce995" }
 ratatui = { git = "https://github.com/nornagon/ratatui", rev = "9b2ad1298408c45918ee9f8241a6f95498cdbed2" }
 tokio-tungstenite = { git = "https://github.com/openai-oss-forks/tokio-tungstenite", rev = "132f5b39c862e3a970f731d709608b3e6276d5f6" }
 tungstenite = { git = "https://github.com/openai-oss-forks/tungstenite-rs", rev = "9200079d3b54a1ff51072e24d81fd354f085156f" }
+# this repo was already using a patch of colorterm, but it was old and using an incompatable version of rustix. This is a fork of the original
+# patch that updates rust to a compatable version for AIX
+crossterm = { git = "https://github.com/dalvescb/crossterm", branch = "aix-patch" }
+# amy's backtrace fix with small correction
+backtrace = { git = "https://github.com/dalvescb/backtrace-rs", branch = "patch-fix" }
+#  nix version 30.1 (as high as starlark - rustyline will go) also needed with pty feature turned on, so give it same patch cherry pciked onto 30.1
+nix_0_30_1 = { git = "https://github.com/dalvescb/nix", package = "nix", version = "0.30.1", branch = "aix-pty-0.30.1" }
+# contains patch for portable-pty to use nix::openpty with aix
+nix_0_31_2 = { git = "https://github.com/dalvescb/nix", package = "nix", version = "0.31.2", branch = "aix-pty-0.31.2-fix" }
+# portable-pty needs a patch to use nix::openpty instead of libc::openpty
+portable-pty = { git = "https://github.com/dalvescb/wezterm", branch = "nix-pty" }
+# starlark needs to upgrade rustyline to in turn upgrade nix to workable version (i.e, from 0.28 to 0.29)
+starlark = { git = "https://github.com/dalvescb/starlark-rust", branch = "update-rustyline" } 
+allocative = { git = "https://github.com/dalvescb/starlark-rust", branch = "update-rustyline" }
+allocative_derive = { git = "https://github.com/dalvescb/starlark-rust", branch = "update-rustyline" }
+# tree-sitter needs to be patched for to remove ctor and add endian.h (currently fails alot of tests)
+tree-sitter = { git = "https://github.com/dalvescb/tree-sitter", branch = "aix-patch" } 
+tree-sitter-language = { git = "https://github.com/dalvescb/tree-sitter", branch = "aix-patch" }
+# tree-sitter-bash needs to be patched to use the above tree-sitter (tree-sitter-language in particular) patch
+tree-sitter-bash = { git = "https://github.com/dalvescb/tree-sitter-bash", branch = "aix-patch" }
+rama-net = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-tls-rustls = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-dns = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-tcp = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-core = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-socks5 = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-utils = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-http = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-http-core = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-http-backend = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-http-headers = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-http-types = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-error = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-macros = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-udp = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+rama-unix = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
+ctor = { git = "https://github.com/dalvescb/rust-ctor", branch = "aix_ctor" }
+dtor = { git = "https://github.com/dalvescb/rust-ctor", branch = "aix_ctor" }
 
 # Uncomment to debug local changes.
 # rmcp = { path = "../../rust-sdk/crates/rmcp" }
