@@ -409,6 +409,7 @@ zstd = "0.13"
 
 wiremock = "0.6"
 zeroize = "1.8.2"
+nix = "0.31.2"
 
 [workspace.lints]
 rust = {}
