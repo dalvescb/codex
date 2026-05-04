@@ -37,7 +37,8 @@ const PTRACE_DENY_ATTACH_FAILED_EXIT_CODE: i32 = 6;
     target_os = "macos",
     target_os = "freebsd",
     target_os = "netbsd",
-    target_os = "openbsd"
+    target_os = "openbsd",
+    target_os = "aix",
 ))]
 const SET_RLIMIT_CORE_FAILED_EXIT_CODE: i32 = 7;
 
