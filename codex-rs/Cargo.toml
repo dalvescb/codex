@@ -227,7 +227,7 @@ mcp_test_support = { path = "mcp-server/tests/common" }
 
 # External
 age = "0.11.1"
-allocative = "0.3.3"
+allocative = "=0.3.3"
 ansi-to-tui = "7.0.0"
 anyhow = "1"
 arboard = { version = "3" }
@@ -388,6 +388,7 @@ tonic = { version = "0.14.3", default-features = false, features = ["channel", "
 tonic-prost = "0.14.3"
 tree-sitter = "0.25.10"
 tree-sitter-bash = "0.25"
+tree-sitter-language = "=0.1.5"
 ts-rs = "11"
 tungstenite = { version = "0.27.0", features = ["deflate", "proxy"] }
 uds_windows = "1.1.0"
@@ -514,7 +515,7 @@ allocative_derive = { git = "https://github.com/dalvescb/starlark-rust", branch 
 tree-sitter = { git = "https://github.com/dalvescb/tree-sitter", branch = "aix-patch" } 
 tree-sitter-language = { git = "https://github.com/dalvescb/tree-sitter", branch = "aix-patch" }
 # tree-sitter-bash needs to be patched to use the above tree-sitter (tree-sitter-language in particular) patch
-tree-sitter-bash = { git = "https://github.com/dalvescb/tree-sitter-bash", branch = "aix-patch" }
+tree-sitter-bash = { git = "https://github.com/dalvescb/tree-sitter-bash", branch = "aix-patch-fix-tslang" }
 rama-net = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
 rama-tls-rustls = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
 rama-dns = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
@@ -533,6 +534,9 @@ rama-udp = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
 rama-unix = { git = "https://github.com/dalvescb/rama", branch = "stub-aws" }
 ctor = { git = "https://github.com/dalvescb/rust-ctor", branch = "aix_ctor" }
 dtor = { git = "https://github.com/dalvescb/rust-ctor", branch = "aix_ctor" }
+dns-lookup = { git = "https://github.com/dalvescb/dns-lookup", branch = "aix-patch" }
+aws-lc-rs = { git = "https://github.com/dalvescb/aws-lc-rs", branch = "aix-v1.16.2" }
+aws-lc-sys = { git = "https://github.com/dalvescb/aws-lc-rs", branch = "aix-v1.16.2" }
 
 # Uncomment to debug local changes.
 # rmcp = { path = "../../rust-sdk/crates/rmcp" }
